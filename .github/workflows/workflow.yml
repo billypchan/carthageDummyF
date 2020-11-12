@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: trigger repo D
+name: trigger repo D bump
 
 # Controls when the action will run. Triggers the workflow on push or pull request
 # events but only for the main branch
@@ -16,6 +16,11 @@ jobs:
     steps:
       - name: dispatch trigger parent(s) repo bump
         run: |
+          curl -X POST https://api.github.com/repos/billypchan/carthageDummyD/dispatches \
+          -H 'Accept: application/vnd.github.everest-preview+json' \
+          -u ${{ secrets.E_SECRET }} \
+          --data '{"event_type": "ping", "client_payload": { "repository": "'"$GITHUB_REPOSITORY"'" }}'
+           
           curl -X POST https://api.github.com/repos/billypchan/carthageDummyD/actions/workflows/workflowDispatchRecceiver.yaml/dispatches \
           -H 'Accept: application/vnd.github.v3+json' \
           -H "Content-Type: application/json" \
