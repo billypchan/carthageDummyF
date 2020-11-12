@@ -2,6 +2,7 @@ name: dispatch
 
 on:
   release:
+    types: [published]
 
 jobs:
   dispatch:
