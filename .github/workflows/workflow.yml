@@ -18,9 +18,7 @@ jobs:
         run: |
           curl -X POST https://api.github.com/repos/billypchan/carthageDummyD/dispatches \
           -H 'Accept: application/vnd.github.everest-preview+json' \
-          -u ${{ secrets.E_SECRET }} \
-          --data '{"event_type": "ping", "client_payload": { "repository": "'"$GITHUB_REPOSITORY"'" }}'
-           
+          --data '{"event_type": "ping", "client_payload": { "repository": "'"$GITHUB_REPOSITORY"'" }}'           
           curl -X POST https://api.github.com/repos/billypchan/carthageDummyD/actions/workflows/workflowDispatchRecceiver.yaml/dispatches \
           -H 'Accept: application/vnd.github.v3+json' \
           -H "Content-Type: application/json" \
