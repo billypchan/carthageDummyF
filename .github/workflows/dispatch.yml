@@ -12,7 +12,7 @@ jobs:
     steps:
       - name: dispatch trigger parent(s) repo bump
         run: |
-          curl -X XPOST https://api.github.com/repos/billypchan/carthageDummyD/actions/workflows/repositoryDispatch.yml/dispatches \
+          curl -X XPOST https://api.github.com/repos/billypchan/carthageDummyD/.github/workflows/repositoryDispatch.yml/dispatches \
           -H 'Accept: application/vnd.github.everest-preview+json' \
           -u "${{ secrets.PAT_USERNAME}}:${{secrets.ACTIONS_TOKEN}}" \
           --data '{"ref": "master"}'
