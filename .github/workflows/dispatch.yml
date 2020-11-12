@@ -11,7 +11,7 @@ jobs:
       - name: dispatch trigger parent(s) repo bump
         run: |
           curl -X POST https://api.github.com/repos/billypchan/carthageDummyD/actions/workflows/repositoryDispatch.yaml/dispatches \
-          -H 'Accept: application/vnd.github.everest-preview+json' \
+          -H 'Accept: application/vnd.github.v3+json' \
           -H "Content-Type: application/json" \
           -u "${{ secrets.PAT_USERNAME}}:${{secrets.ACTIONS_TOKEN}}" \
           --data '{"ref": "main"}'
