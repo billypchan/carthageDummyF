@@ -13,6 +13,6 @@ jobs:
           curl -X POST https://api.github.com/repos/billypchan/carthageDummyD/actions/workflows/repositoryDispatch.yaml/dispatches \
           -H 'Accept: application/vnd.github.v3+json' \
           -H "Content-Type: application/json" \
-          -u "${{ secrets.PAT_USERNAME}}:${{secrets.ACTIONS_TOKEN}}" \
+          -u "${{ secrets.PAT_USERNAME}}:${{secrets.WORKFLOW_ACTIONS_TOKEN}}" \
           --data '{"ref": "main"}'
            
