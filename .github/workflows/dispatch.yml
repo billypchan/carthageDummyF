@@ -14,5 +14,6 @@ jobs:
         run: |
           curl -X POST https://api.github.com/repos/billypchan/carthageDummyD/dispatches \
           -H 'Accept: application/vnd.github.everest-preview+json' \
-          -u "${{ secrets.PAT_USERNAME}}:${{secrets.ACTIONS_TOKEN}}" \
+          -H "Content-Type: application/json" \
+          -u "${{secrets.PAT_USERNAME}}:${{secrets.ACTIONS_TOKEN}}" \
           --data '{"event_type": "ping", "client_payload": { "repository": "'"$GITHUB_REPOSITORY"'" }}'
